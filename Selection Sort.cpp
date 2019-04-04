@@ -1,41 +1,42 @@
-#include <iostream>
+//selection sort
 
+#include<iostream>
+#include<string.h>
 using namespace std;
+#define len 100
 
-void InsertionSort(int *a, int n);
-void InsertionSort(int *a, int b){
+void selectionSort(int* a, int n){
 
-for(int i = 1; i<n; i++){
-
-    int value = a[i];
-    int hole = i;
-    while(h>0 && a[hole-1]>value){
-        a[hole] = a[hole-1];
-        hole--;
+int minValue = a[0];
+int minIndex;
+for(int i = 0; i<n; i++){
+    minValue = a[i];
+    minIndex = i;
+    for(int j = i+1; j<n; j++){
+        if(a[j] < minValue){
+            minValue = a[j];
+            minIndex = j;
+        }
     }
-    a[hole] = value;
-
-
-
+    int temp = a[i];
+    a[i] = a[minIndex];
+    a[minIndex] = temp;
 }
 
 }
 
+int main(){
+int arr[len],n;
+cout<<"Enter length of integer array: ";
+cin>>n;
+for(int i = 0; i<n; i++){
+    cout<<"Enter value: ";
+    cin>>arr[i];
+}
 
-int main()
-{
-    int a[50];
-    int d;
-    cout<<"How many numbers: ";
-    cin>>d;
-    cout<<"Enter Value: ";
-    for(int i=0; i<d; i++){
-        cin>>a[i];
-    }
-    SelectionSort(a,d);
+selectionSort(arr,n);
 
-    for(int i= 0; i<d; i++){
-        cout<<a[i]<<" ";
-    }
-
+cout<<"After sorting: ";
+for(int i = 0; i<n; i++)
+    cout<<arr[i]<<" ";
 }
