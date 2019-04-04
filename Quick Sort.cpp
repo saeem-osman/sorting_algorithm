@@ -45,7 +45,7 @@ int a[x];
 cout<<"Enter value : ";
 for(int i = 0 ; i<x; i++)
     cin>>a[i];
-QuickSort(a,0,x);
+QuickSort(a,0,x-1);
 for(int i = 0; i<x; i++){
     cout<<a[i]<<" ";
 }
